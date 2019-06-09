@@ -54,5 +54,11 @@ describe('Berlin Clock', () => {
             expect(clock.secondsLamp('59')).to.equal('O');
         });
     });
+
+    describe("Five Hours Row", () => {
+        it("Should return 'OOOO' for '00' hour", function() {
+          expect(clock.fiveHoursRow('00')).to.equal('OOOO');
+        });
+    });
 });  
 

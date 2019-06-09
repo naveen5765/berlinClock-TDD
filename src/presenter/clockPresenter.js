@@ -4,6 +4,19 @@ import { isInValidTime } from '../utils/helpers';
 const ClockPresenter = (_view) => {
     const clockView = _view;
 
+    const isLightTurnedOn = (lampIndex, lampsToBeTurnedOn) => {
+        return lampIndex <= lampsToBeTurnedOn;
+    };
+
+    const fiveHoursRow = (hours) => {
+        let lampsToBeTurnedOn = Math.floor(hours / 5);
+        let lamps = "";
+        for (let lampIndex = 1; lampIndex <= Constants.TOTAL_FIVE_HOURS_LAMPS; lampIndex++) {
+            lamps += isLightTurnedOn(lampIndex, lampsToBeTurnedOn) ? Constants.LIGHT_RED : Constants.LIGHT_OFF;
+        }
+        return lamps;
+    };
+
     const secondsLamp = (seconds) => {
         return seconds % 2 === 0 ? Constants.LIGHT_YELLOW : Constants.LIGHT_OFF;
     };
@@ -25,7 +38,8 @@ const ClockPresenter = (_view) => {
             }
         },
         getBerlinClockTime,
-        secondsLamp
+        secondsLamp,
+        fiveHoursRow
     };
 };
 
