@@ -18,15 +18,17 @@ const ClockPresenter = (_view) => {
 
     const singleMinutesRow = (minutes) => {
         let lampsToBeTurnedOn = modulo5(minutes);
-        if(lampsToBeTurnedOn === 0)
-            return 'OOOO'; 
+        return getLamps(
+            lampsToBeTurnedOn, 
+            Constants.TOTAL_SINGLE_MINUTES_LAMPS,
+            () => Constants.LIGHT_YELLOW);
     };
 
     const fiveMinutesRow = (minutes) => {
         let lampsToBeTurnedOn = Math.floor(minutes / 5);
         return getLamps(
             lampsToBeTurnedOn, 
-            Constants.TOTAL_FIVE_MINUTES_LIGHTS,
+            Constants.TOTAL_FIVE_MINUTES_LAMPS,
             (lightIndex) => isMultipleOf3(lightIndex) ? Constants.LIGHT_RED : Constants.LIGHT_YELLOW);
     };
 
