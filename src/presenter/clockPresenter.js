@@ -8,22 +8,22 @@ const ClockPresenter = (_view) => {
         return lampIndex <= lampsToBeTurnedOn;
     };
 
-    const singleHoursRow = (hours) => {
-        let lampsToBeTurnedOn = hours % 5;
+    const getLamps = (lampsToBeTurnedOn, totalLampsInRow) => {
         let lamps = "";
-        for (let lampIndex = 1; lampIndex <= Constants.TOTAL_FIVE_HOURS_LAMPS; lampIndex++) {
+        for (let lampIndex = 1; lampIndex <= totalLampsInRow; lampIndex++) {
             lamps += isLightTurnedOn(lampIndex, lampsToBeTurnedOn) ? Constants.LIGHT_RED : Constants.LIGHT_OFF;
         }
         return lamps;
     };
 
+    const singleHoursRow = (hours) => {
+        let lampsToBeTurnedOn = hours % 5;
+        return getLamps(lampsToBeTurnedOn, Constants.TOTAL_SINGLE_HOURS_LAMPS);
+    };
+
     const fiveHoursRow = (hours) => {
         let lampsToBeTurnedOn = Math.floor(hours / 5);
-        let lamps = "";
-        for (let lampIndex = 1; lampIndex <= Constants.TOTAL_FIVE_HOURS_LAMPS; lampIndex++) {
-            lamps += isLightTurnedOn(lampIndex, lampsToBeTurnedOn) ? Constants.LIGHT_RED : Constants.LIGHT_OFF;
-        }
-        return lamps;
+        return getLamps(lampsToBeTurnedOn, Constants.TOTAL_FIVE_HOURS_LAMPS);
     };
 
     const secondsLamp = (seconds) => {
