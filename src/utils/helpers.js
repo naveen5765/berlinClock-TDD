@@ -8,6 +8,7 @@ export const prependZero = (number) => {
 export const isInValidTime = (time) => {
     const timeParts = time.split(':');
     const seconds = timeParts[2];
+    let minutes = timeParts[1];
 
-    return !/^([0-5][0-9])?$/.test(seconds);
+    return !/^([0-5][0-9])?$/.test(seconds) && !/^([0-5][0-9])?$/.test(minutes);
 };

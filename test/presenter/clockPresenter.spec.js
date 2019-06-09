@@ -14,5 +14,18 @@ describe('Berlin Clock', () => {
 
         expect(exceptionThrown).to.be.true;
     });
+
+    it('Should throw an error when an invalid minute is passed', () => {
+        const clock = Clock();
+        let exceptionThrown = false;
+
+        try{
+            clock.getBerlinClockTime('00:61:00');
+        }catch(exception){
+            exceptionThrown = true;
+        }
+
+        expect(exceptionThrown).to.be.true;
+    });
 });  
 
