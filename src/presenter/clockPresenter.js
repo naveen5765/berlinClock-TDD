@@ -1,5 +1,5 @@
 import Constants from '../utils/constants';
-import { isInValidTime } from '../utils/helpers';
+import { isInValidTime, isEven, modulo5 } from '../utils/helpers';
 
 const ClockPresenter = (_view) => {
     const clockView = _view;
@@ -17,7 +17,7 @@ const ClockPresenter = (_view) => {
     };
 
     const singleHoursRow = (hours) => {
-        let lampsToBeTurnedOn = hours % 5;
+        let lampsToBeTurnedOn = modulo5(hours);
         return getLamps(lampsToBeTurnedOn, Constants.TOTAL_SINGLE_HOURS_LAMPS);
     };
 
@@ -27,7 +27,7 @@ const ClockPresenter = (_view) => {
     };
 
     const secondsLamp = (seconds) => {
-        return seconds % 2 === 0 ? Constants.LIGHT_YELLOW : Constants.LIGHT_OFF;
+        return isEven(seconds) ? Constants.LIGHT_YELLOW : Constants.LIGHT_OFF;
     };
 
     const getBerlinClockTime = (digitalTime) => {
