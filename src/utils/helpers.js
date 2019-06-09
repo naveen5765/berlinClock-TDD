@@ -16,3 +16,7 @@ export const isEven = (number) => {
 export const modulo5 = (number) => {
   return number % 5; 
 };
+
+export const isMultipleOf3 = (number) => {
+  return number % 3 === 0;
+};

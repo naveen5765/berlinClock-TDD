@@ -1,5 +1,5 @@
 import Constants from '../utils/constants';
-import { isInValidTime, isEven, modulo5 } from '../utils/helpers';
+import { isInValidTime, isEven, modulo5, isMultipleOf3 } from '../utils/helpers';
 
 const ClockPresenter = (_view) => {
     const clockView = _view;
@@ -8,28 +8,36 @@ const ClockPresenter = (_view) => {
         return lampIndex <= lampsToBeTurnedOn;
     };
 
-    const getLamps = (lampsToBeTurnedOn, totalLampsInRow) => {
+    const getLamps = (lampsToBeTurnedOn, totalLampsInRow, color) => {
         let lamps = "";
         for (let lampIndex = 1; lampIndex <= totalLampsInRow; lampIndex++) {
-            lamps += isLightTurnedOn(lampIndex, lampsToBeTurnedOn) ? Constants.LIGHT_RED : Constants.LIGHT_OFF;
+            lamps += isLightTurnedOn(lampIndex, lampsToBeTurnedOn) ? color(lampIndex) : Constants.LIGHT_OFF;
         }
         return lamps;
     };
 
     const fiveMinutesRow = (minutes) => {
         let lampsToBeTurnedOn = Math.floor(minutes / 5);
-        if(lampsToBeTurnedOn === 0)
-            return 'OOOOOOOOOOO';
+        return getLamps(
+            lampsToBeTurnedOn, 
+            Constants.TOTAL_FIVE_MINUTES_LIGHTS,
+            (lightIndex) => isMultipleOf3(lightIndex) ? Constants.LIGHT_RED : Constants.LIGHT_YELLOW);
     };
 
     const singleHoursRow = (hours) => {
         let lampsToBeTurnedOn = modulo5(hours);
-        return getLamps(lampsToBeTurnedOn, Constants.TOTAL_SINGLE_HOURS_LAMPS);
+        return getLamps(
+            lampsToBeTurnedOn, 
+            Constants.TOTAL_SINGLE_HOURS_LAMPS,
+            () => Constants.LIGHT_RED);
     };
 
     const fiveHoursRow = (hours) => {
         let lampsToBeTurnedOn = Math.floor(hours / 5);
-        return getLamps(lampsToBeTurnedOn, Constants.TOTAL_FIVE_HOURS_LAMPS);
+        return getLamps(
+            lampsToBeTurnedOn, 
+            Constants.TOTAL_FIVE_HOURS_LAMPS,
+            () => Constants.LIGHT_RED);
     };
 
     const secondsLamp = (seconds) => {
