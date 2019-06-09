@@ -5,7 +5,7 @@ const ClockPresenter = (_view) => {
     const clockView = _view;
 
     const secondsLamp = (seconds) => {
-        return seconds % 2 === 0 ? Constants.LIGHT_YELLOW : '';
+        return seconds % 2 === 0 ? Constants.LIGHT_YELLOW : Constants.LIGHT_OFF;
     };
 
     const getBerlinClockTime = (digitalTime) => {
