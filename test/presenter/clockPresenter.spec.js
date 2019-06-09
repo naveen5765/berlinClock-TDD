@@ -2,8 +2,11 @@ import { expect } from 'chai';
 import Clock from '../../src/presenter/clockPresenter';
 
 describe('Berlin Clock', () => {
-    it('Should throw an error when an invalid second is passed', () => {
+    beforeEach(() => {
         const clock = Clock();
+    });
+    
+    it('Should throw an error when an invalid second is passed', () => {
         let exceptionThrown = false;
 
         try{
@@ -16,7 +19,6 @@ describe('Berlin Clock', () => {
     });
 
     it('Should throw an error when an invalid minute is passed', () => {
-        const clock = Clock();
         let exceptionThrown = false;
 
         try{
@@ -29,7 +31,6 @@ describe('Berlin Clock', () => {
     });
 
     it('Should throw an error when an invalid hour is passed', () => {
-        const clock = Clock();
         let exceptionThrown = false;
 
         try{
