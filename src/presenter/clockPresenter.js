@@ -10,8 +10,11 @@ const ClockPresenter = (_view) => {
 
     const singleHoursRow = (hours) => {
         let lampsToBeTurnedOn = hours % 5;
-        if(lampsToBeTurnedOn === 0)
-            return 'OOOO';
+        let lamps = "";
+        for (let lampIndex = 1; lampIndex <= Constants.TOTAL_FIVE_HOURS_LAMPS; lampIndex++) {
+            lamps += isLightTurnedOn(lampIndex, lampsToBeTurnedOn) ? Constants.LIGHT_RED : Constants.LIGHT_OFF;
+        }
+        return lamps;
     };
 
     const fiveHoursRow = (hours) => {
