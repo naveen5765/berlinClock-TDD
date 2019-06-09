@@ -120,5 +120,11 @@ describe('Berlin Clock', () => {
             expect(clock.fiveMinutesRow('35')).to.equal('YYRYYRYOOOO');
         });
     });
+
+    describe("Single Minutes Row", () => {
+        it("Should return 'OOOO' for '00' minute", function() {
+          expect(clock.singleMinutesRow('00')).to.equal('OOOO');
+        });
+    });
 });  
 

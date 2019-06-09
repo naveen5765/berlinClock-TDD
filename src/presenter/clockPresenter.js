@@ -16,6 +16,12 @@ const ClockPresenter = (_view) => {
         return lamps;
     };
 
+    const singleMinutesRow = (minutes) => {
+        let lampsToBeTurnedOn = modulo5(minutes);
+        if(lampsToBeTurnedOn === 0)
+            return 'OOOO'; 
+    };
+
     const fiveMinutesRow = (minutes) => {
         let lampsToBeTurnedOn = Math.floor(minutes / 5);
         return getLamps(
@@ -64,7 +70,8 @@ const ClockPresenter = (_view) => {
         secondsLamp,
         fiveHoursRow,
         singleHoursRow,
-        fiveMinutesRow
+        fiveMinutesRow,
+        singleMinutesRow
     };
 };
 
