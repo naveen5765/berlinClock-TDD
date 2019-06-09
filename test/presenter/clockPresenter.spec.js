@@ -142,5 +142,11 @@ describe('Berlin Clock', () => {
             expect(clock.singleMinutesRow('35')).to.equal('OOOO');
         });
     });
+
+    describe("Complete Berlin Clock", () => {
+        it("Should return 'YOOOOOOOOOOOOOOOOOOOOOOO' for '00:00:00' digital time", function() {
+          expect(clock.getBerlinClockTime('00:00:00')).to.equal('YOOOOOOOOOOOOOOOOOOOOOOO');
+        });
+    });
 });  
 
