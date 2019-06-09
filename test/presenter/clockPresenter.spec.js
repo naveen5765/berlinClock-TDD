@@ -44,5 +44,11 @@ describe('Berlin Clock', () => {
             expect(exceptionThrown).to.be.true;
         });
     });
+
+    describe("Seconds lamp", () => {
+        it("Should return 'Y' for even seconds", function() {
+          expect(clock.secondsLamp('00')).to.equal('Y');
+        });
+    });
 });  
 
