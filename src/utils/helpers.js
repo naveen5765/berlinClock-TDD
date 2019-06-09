@@ -20,3 +20,12 @@ export const modulo5 = (number) => {
 export const isMultipleOf3 = (number) => {
   return number % 3 === 0;
 };
+
+export const splitDigitalTime = (time) => {
+  let timeParts = time.split(":");
+  let hours = timeParts[0];
+  let minutes = timeParts[1];
+  let seconds = timeParts[2];
+
+  return {hours, minutes, seconds};
+};

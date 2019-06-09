@@ -1,5 +1,5 @@
 import Constants from '../utils/constants';
-import { isInValidTime, isEven, modulo5, isMultipleOf3 } from '../utils/helpers';
+import { isInValidTime, isEven, modulo5, isMultipleOf3, splitDigitalTime } from '../utils/helpers';
 
 const ClockPresenter = (_view) => {
     const clockView = _view;
@@ -56,10 +56,7 @@ const ClockPresenter = (_view) => {
         if(isInValidTime(digitalTime))
             throw Constants.ERROR_MESSAGE;
 
-        const timeParts = digitalTime.split(":");
-        const hours = timeParts[0];
-        const minutes = timeParts[1];
-        const seconds = timeParts[2];
+        const { hours, minutes, seconds } =  splitDigitalTime(digitalTime);
 
         return secondsLamp(seconds) +
             fiveHoursRow(hours) +
