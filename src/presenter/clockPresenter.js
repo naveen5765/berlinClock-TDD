@@ -8,6 +8,12 @@ const ClockPresenter = (_view) => {
         return lampIndex <= lampsToBeTurnedOn;
     };
 
+    const singleHoursRow = (hours) => {
+        let lampsToBeTurnedOn = hours % 5;
+        if(lampsToBeTurnedOn === 0)
+            return 'OOOO';
+    };
+
     const fiveHoursRow = (hours) => {
         let lampsToBeTurnedOn = Math.floor(hours / 5);
         let lamps = "";
@@ -39,7 +45,8 @@ const ClockPresenter = (_view) => {
         },
         getBerlinClockTime,
         secondsLamp,
-        fiveHoursRow
+        fiveHoursRow,
+        singleHoursRow
     };
 };
 
