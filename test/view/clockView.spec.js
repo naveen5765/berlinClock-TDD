@@ -111,4 +111,10 @@ describe('Berlin Clock View', () => {
             expect(fiveMinuteLamp.classList.contains('on')).to.be.true;
         });
     });
+
+    describe('Single minute row', () => {
+        it('Should display 4 lamps', () => {
+            expect(document.querySelectorAll('#singleMinuteRow .light').length).to.equal(4);
+        });
+    });
 });

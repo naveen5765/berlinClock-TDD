@@ -28,6 +28,12 @@ export default () => {
                     <div class="light"></div>
                     <div class="light"></div>
                 </div>
+                <div id="singleMinuteRow">
+                    <div class="light"></div>
+                    <div class="light"></div>
+                    <div class="light"></div>
+                    <div class="light"></div>
+                </div>
             </div>
             <div id="digitalClock"></div>`;
 };
