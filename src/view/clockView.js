@@ -5,26 +5,32 @@ import { addClass, removeClass } from '../utils/helpers';
 const ClockView = (container) => {
     container.innerHTML = clockTemplate();
 
+    const toggleLight = (light, lightSwitch) => {
+        if(lightSwitch === 'on'){
+            removeClass(light, 'off');
+            addClass(light, 'on');
+        }else{
+            removeClass(light, 'on');
+            addClass(light, 'off');
+        }
+    };
+
     return {
         setBerlinClockTime: (berlinClockTime) => {
             if(berlinClockTime[0] === Constants.LIGHT_YELLOW){
                 let light = document.querySelectorAll('#secondsLamp .light')[0];
-                removeClass(light, 'off');
-                addClass(light, 'on');
+                toggleLight(light, 'on');
             }else{
                 let light = document.querySelectorAll('#secondsLamp .light')[0];
-                removeClass(light, 'on');
-                addClass(light, 'off');
+                toggleLight(light, 'off');
             }
 
             for (let fiveHourRowIndex = 1; fiveHourRowIndex <= 4; fiveHourRowIndex += 1) {
                 let light = document.querySelectorAll('#fiveHourRow .light')[fiveHourRowIndex - 1];
                 if (berlinClockTime[fiveHourRowIndex] === Constants.LIGHT_RED) {
-                    removeClass(light, 'off');
-                    addClass(light, 'on');
+                    toggleLight(light, 'on');
                 } else if (berlinClockTime[fiveHourRowIndex] === Constants.LIGHT_OFF) {
-                    removeClass(light, 'on');
-                    addClass(light, 'off');
+                    toggleLight(light, 'off');
                 }
             }
 
