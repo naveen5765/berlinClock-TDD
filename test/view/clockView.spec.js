@@ -60,4 +60,11 @@ describe('Berlin Clock View', () => {
 
         expect(secondsLamp.classList.contains('on')).to.be.true;
     });
+
+    it('Should turn off five hours lamp if Berlin Clock color index is O', () => {
+        clockView.setBerlinClockTime('YOOOORRROYYRYYRYYROOYYOO');
+        let secondsLamp = document.querySelectorAll('#fiveHourRow .light')[0];
+
+        expect(secondsLamp.classList.contains('off')).to.be.true;
+    });
 });
