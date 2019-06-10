@@ -31,4 +31,8 @@ describe('Berlin Clock View', () => {
 
         expect(document.getElementById('berlinClock').innerHTML).eql('Error Message');
     });
+
+    it('Should display seconds lamp', () => {
+        expect(document.getElementById('secondsLamp')).to.not.be.null;;
+    });
 });

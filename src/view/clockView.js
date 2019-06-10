@@ -5,7 +5,7 @@ const ClockView = (container) => {
 
     return {
         setBerlinClockTime: (berlinClockTime) => {
-            document.getElementById('berlinClock').innerHTML = berlinClockTime;
+            // document.getElementById('berlinClock').innerHTML = berlinClockTime;
         },
 
         setDigitalClockTime: (digitalClockTime) => {

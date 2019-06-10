@@ -1,6 +1,8 @@
 export default () => { 
-    return `
-    <div id="berlinClock"></div>
-    <div id="digitalClock"></div>
-    `;
+    return `<div id="berlinClock">
+                <div id="secondsLamp">
+                    <div class="light"></div>
+                </div>
+            </div>
+            <div id="digitalClock"></div>`;
 };
