@@ -47,7 +47,7 @@ describe('Berlin Clock', () => {
 
     describe("Seconds lamp", () => {
         it("Should return 'Y' for even seconds", function() {
-          expect(clock.secondsLamp('00')).to.equal('Y');
+            expect(clock.secondsLamp('00')).to.equal('Y');
         });
 
         it("Should return 'O' for odd seconds", function() {
@@ -57,7 +57,7 @@ describe('Berlin Clock', () => {
 
     describe("Five Hours Row", () => {
         it("Should return 'OOOO' for '00' hour", function() {
-          expect(clock.fiveHoursRow('00')).to.equal('OOOO');
+            expect(clock.fiveHoursRow('00')).to.equal('OOOO');
         });
 
         it("Should return 'RRRR' for '23' hours", function() {
@@ -79,7 +79,7 @@ describe('Berlin Clock', () => {
 
     describe("Single Hours Row", () => {
         it("Should return 'OOOO' for '00' hour", function() {
-          expect(clock.singleHoursRow('00')).to.equal('OOOO');
+            expect(clock.singleHoursRow('00')).to.equal('OOOO');
         });
 
         it("Should return 'RRRO' for '23' hours", function() {
@@ -101,7 +101,7 @@ describe('Berlin Clock', () => {
 
     describe("Five Minutes Row", () => {
         it("Should return 'OOOOOOOOOOO' for '00' minute", function() {
-          expect(clock.fiveMinutesRow('00')).to.equal('OOOOOOOOOOO');
+            expect(clock.fiveMinutesRow('00')).to.equal('OOOOOOOOOOO');
         });
 
         it("Should return 'YYRYYRYYRYY' for '59' minutes", function() {
@@ -123,7 +123,7 @@ describe('Berlin Clock', () => {
 
     describe("Single Minutes Row", () => {
         it("Should return 'OOOO' for '00' minute", function() {
-          expect(clock.singleMinutesRow('00')).to.equal('OOOO');
+            expect(clock.singleMinutesRow('00')).to.equal('OOOO');
         });
 
         it("Should return 'YYYY' for '59' minutes", function() {
@@ -145,7 +145,7 @@ describe('Berlin Clock', () => {
 
     describe("Complete Berlin Clock", () => {
         it("Should return 'YOOOOOOOOOOOOOOOOOOOOOOO' for '00:00:00' digital time", function() {
-          expect(clock.getBerlinClockTime('00:00:00')).to.equal('YOOOOOOOOOOOOOOOOOOOOOOO');
+            expect(clock.getBerlinClockTime('00:00:00')).to.equal('YOOOOOOOOOOOOOOOOOOOOOOO');
         });
 
         it("Should return 'ORRRRRRROYYRYYRYYRYYYYYY' for '23:59:59' digital time", function() {
