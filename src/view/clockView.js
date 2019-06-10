@@ -17,49 +17,13 @@ const ClockView = (container) => {
 
     return {
         setBerlinClockTime: (berlinClockTime) => {
-            if(berlinClockTime[0] === Constants.LIGHT_YELLOW){
-                let light = document.querySelectorAll('#secondsLamp .light')[0];
-                toggleLight(light, 'on');
-            }else{
-                let light = document.querySelectorAll('#secondsLamp .light')[0];
-                toggleLight(light, 'off');
-            }
-
-            for (let fiveHourRowIndex = 1; fiveHourRowIndex <= 4; fiveHourRowIndex += 1) {
-                let light = document.querySelectorAll('#fiveHourRow .light')[fiveHourRowIndex - 1];
-                if (berlinClockTime[fiveHourRowIndex] === Constants.LIGHT_RED) {
-                    toggleLight(light, 'on');
-                } else if (berlinClockTime[fiveHourRowIndex] === Constants.LIGHT_OFF) {
-                    toggleLight(light, 'off');
-                }
-            }
-
-            for (let singleHourRowIndex = 0; singleHourRowIndex < 4; singleHourRowIndex += 1) {
-                let light = document.querySelectorAll('#singleHourRow .light')[singleHourRowIndex];
-                if (berlinClockTime[singleHourRowIndex + 5] === Constants.LIGHT_RED) {
-                    toggleLight(light, 'on');
-                } else if (berlinClockTime[singleHourRowIndex + 5] === Constants.LIGHT_OFF) {
-                    toggleLight(light, 'off');
-                }
-            }
-
-            for (let fiveMinutesRowIndex = 0; fiveMinutesRowIndex < 11; fiveMinutesRowIndex += 1) {
-                let light = document.querySelectorAll('#fiveMinuteRow .light')[fiveMinutesRowIndex];
-                if (berlinClockTime[fiveMinutesRowIndex + 9] === Constants.LIGHT_OFF) {
-                    toggleLight(light, 'off');
-                } else if (
-                    berlinClockTime[fiveMinutesRowIndex + 9] === Constants.LIGHT_RED
-                    || berlinClockTime[fiveMinutesRowIndex + 9] === Constants.LIGHT_YELLOW) {
-                    toggleLight(light, 'on');
-                } 
-            }
-
-            for (let singleMinuteRowIndex = 0; singleMinuteRowIndex < 4; singleMinuteRowIndex += 1) {
-                let light = document.querySelectorAll('#singleMinuteRow .light')[singleMinuteRowIndex];
-                if (berlinClockTime[singleMinuteRowIndex + 20] === Constants.LIGHT_YELLOW) {
-                    toggleLight(light, 'on');
-                } else if (berlinClockTime[singleMinuteRowIndex + 20] === Constants.LIGHT_OFF) {
-                    toggleLight(light, 'off');
+            let lights = document.querySelectorAll('.light');
+    
+            for (let berlinClockIndex = 0; berlinClockIndex < berlinClockTime.length; berlinClockIndex += 1) {
+                if (berlinClockTime[berlinClockIndex] === Constants.LIGHT_YELLOW || berlinClockTime[berlinClockIndex] === Constants.LIGHT_RED) {
+                    toggleLight(lights[berlinClockIndex], 'on');
+                } else if (berlinClockTime[berlinClockIndex] === Constants.LIGHT_OFF) {
+                    toggleLight(lights[berlinClockIndex], 'off');
                 }
             }
 
