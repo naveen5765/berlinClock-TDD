@@ -71,4 +71,10 @@ describe('Berlin Clock View', () => {
             expect(secondsLamp.classList.contains('off')).to.be.true;
         });
     });
+
+    describe('Single hours row', () => {
+        it('Should display 4 lamps', () => {
+            expect(document.querySelectorAll('#singleHourRow .light').length).to.equal(4);
+        });
+    });
 });
