@@ -6,9 +6,13 @@ describe('Berlin Clock View', () => {
     jsdom({
         url: 'http://localhost'
     });
+    let clockView;
+
+    beforeEach(() => {
+        clockView = ClockView(document.body);
+    });
 
     it('Should display the digital time', () => {
-        const clockView = ClockView(document.body);
         var div = document.createElement('div');
         div.setAttribute('id', 'digitalClock');
         document.body.appendChild(div);
@@ -19,7 +23,6 @@ describe('Berlin Clock View', () => {
     });
 
     it('Should display an error message in case of an exception', () => {
-        const clockView = ClockView(document.body);
         var div = document.createElement('div');
         div.setAttribute('id', 'berlinClock');
         document.body.appendChild(div);
