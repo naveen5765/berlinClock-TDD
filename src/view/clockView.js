@@ -43,6 +43,13 @@ const ClockView = (container) => {
                 }
             }
 
+            for (let fiveMinutesRowIndex = 0; fiveMinutesRowIndex < 11; fiveMinutesRowIndex += 1) {
+                let light = document.querySelectorAll('#fiveMinuteRow .light')[fiveMinutesRowIndex];
+                if (berlinClockTime[fiveMinutesRowIndex + 9] === Constants.LIGHT_OFF) {
+                    toggleLight(light, 'off');
+                }
+            }
+
         },
 
         setDigitalClockTime: (digitalClockTime) => {
