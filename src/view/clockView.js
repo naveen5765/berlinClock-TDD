@@ -1,11 +1,16 @@
 import clockTemplate from '../templates/clock_template';
+import Constants from '../utils/constants';
+import { addClass, removeClass } from '../utils/helpers';
 
 const ClockView = (container) => {
     container.innerHTML = clockTemplate();
 
     return {
         setBerlinClockTime: (berlinClockTime) => {
-            // document.getElementById('berlinClock').innerHTML = berlinClockTime;
+            if(berlinClockTime[0] === Constants.LIGHT_YELLOW){
+                let light = document.querySelectorAll('#secondsLamp .light')[0];
+                addClass(light, 'on');
+            }
         },
 
         setDigitalClockTime: (digitalClockTime) => {

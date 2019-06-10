@@ -33,6 +33,13 @@ describe('Berlin Clock View', () => {
     });
 
     it('Should display seconds lamp', () => {
-        expect(document.getElementById('secondsLamp')).to.not.be.null;;
+        expect(document.getElementById('secondsLamp')).to.not.be.null;
+    });
+
+    it('Should turn on seconds lamp during even seconds', () => {
+        clockView.setBerlinClockTime('YOOOORRROYYRYYRYYROOYYOO');
+        let secondsLamp = document.querySelectorAll('#secondsLamp .light')[0];
+
+        expect(secondsLamp.classList.contains('on')).to.be.true;
     });
 });
