@@ -69,7 +69,9 @@ const ClockPresenter = (_view) => {
         setTime: (digitalTime) => {
             try{
                 const berlinClockTime = getBerlinClockTime(digitalTime);
+
                 clockView.setBerlinClockTime(berlinClockTime);
+                clockView.setDigitalClockTime(digitalTime);
             }catch(errorMessage){
                 clockView.setErrorMessage(errorMessage);
             }
