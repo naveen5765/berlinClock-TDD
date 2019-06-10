@@ -123,5 +123,12 @@ describe('Berlin Clock View', () => {
     
             expect(singleHourLamp.classList.contains('on')).to.be.true;
         });
+
+        it('Should turn off if Berlin Clock color index is O', () => {
+            clockView.setBerlinClockTime('YRRRRRRROYYRYYRYYROOOYOO');
+            let singleHourLamp = document.querySelectorAll('#singleMinuteRow .light')[0];
+    
+            expect(singleHourLamp.classList.contains('off')).to.be.true;
+        });
     });
 });

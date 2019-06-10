@@ -58,6 +58,8 @@ const ClockView = (container) => {
                 let light = document.querySelectorAll('#singleMinuteRow .light')[singleMinuteRowIndex];
                 if (berlinClockTime[singleMinuteRowIndex + 20] === Constants.LIGHT_YELLOW) {
                     toggleLight(light, 'on');
+                } else if (berlinClockTime[singleMinuteRowIndex + 20] === Constants.LIGHT_OFF) {
+                    toggleLight(light, 'off');
                 }
             }
 

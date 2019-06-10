@@ -37,7 +37,8 @@ body {
 }
 
 #secondsLamp .light.off,
-#fiveMinuteRow .light.off:not(:nth-child(3n + 3)) {
+#fiveMinuteRow .light.off:not(:nth-child(3n + 3)),
+#singleMinuteRow .light.off {
   background-color: #663;
 }
 
