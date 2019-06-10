@@ -38,7 +38,9 @@ const ClockView = (container) => {
                 let light = document.querySelectorAll('#singleHourRow .light')[singleHourRowIndex];
                 if (berlinClockTime[singleHourRowIndex + 5] === Constants.LIGHT_RED) {
                     toggleLight(light, 'on');
-                } 
+                } else if (berlinClockTime[singleHourRowIndex + 5] === Constants.LIGHT_OFF) {
+                    toggleLight(light, 'off');
+                }
             }
 
         },

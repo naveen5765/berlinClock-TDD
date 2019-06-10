@@ -83,5 +83,12 @@ describe('Berlin Clock View', () => {
     
             expect(secondsLamp.classList.contains('on')).to.be.true;
         });
+
+        it('Should turn off if Berlin Clock color index is O', () => {
+            clockView.setBerlinClockTime('YRRRROOROYYRYYRYYROOYYOO');
+            let secondsLamp = document.querySelectorAll('#singleHourRow .light')[0];
+    
+            expect(secondsLamp.classList.contains('off')).to.be.true;
+        });
     });
 });
