@@ -16,6 +16,15 @@ const ClockView = (container) => {
                 removeClass(light, 'on');
                 addClass(light, 'off');
             }
+
+            for (let fiveHourRowIndex = 1; fiveHourRowIndex <= 4; fiveHourRowIndex += 1) {
+                let light = document.querySelectorAll('#fiveHourRow .light')[fiveHourRowIndex - 1];
+                if (berlinClockTime[fiveHourRowIndex] === Constants.LIGHT_RED) {
+                    removeClass(light, 'off');
+                    addClass(light, 'on');
+                }
+            }
+
         },
 
         setDigitalClockTime: (digitalClockTime) => {
