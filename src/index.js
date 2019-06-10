@@ -4,6 +4,11 @@ import DigitalTime from './model/digitalTime';
 
 const berlinClockContainer = document.getElementById('container');
 const clock = new ClockPresenter(new ClockView(berlinClockContainer));
-const digitalTime = new DigitalTime().getTime();
+let updateClock;
 
-clock.setTime(digitalTime);
+(updateClock = () => {
+    const digitalTime = new DigitalTime().getTime();
+    clock.setTime(digitalTime);
+
+    window.requestAnimationFrame(updateClock);
+})();
