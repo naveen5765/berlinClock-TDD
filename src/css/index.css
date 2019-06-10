@@ -30,7 +30,8 @@ body {
   border-radius: 48px;
 }
 
-#secondsLamp .light.on {
+#secondsLamp .light.on,
+#fiveMinuteRow .light.on:not(:nth-child(3n + 3)) {
   background-color: #ff3;
 }
 
@@ -65,7 +66,8 @@ body {
 }
 
 #fiveHourRow .light.on,
-#singleHourRow .light.on {
+#singleHourRow .light.on,
+#fiveMinuteRow .light.on:nth-child(3n + 3) {
   background-color: #f33;
 }
 

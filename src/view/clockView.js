@@ -47,7 +47,11 @@ const ClockView = (container) => {
                 let light = document.querySelectorAll('#fiveMinuteRow .light')[fiveMinutesRowIndex];
                 if (berlinClockTime[fiveMinutesRowIndex + 9] === Constants.LIGHT_OFF) {
                     toggleLight(light, 'off');
-                }
+                } else if (
+                    berlinClockTime[fiveMinutesRowIndex + 9] === Constants.LIGHT_RED
+                    || berlinClockTime[fiveMinutesRowIndex + 9] === Constants.LIGHT_YELLOW) {
+                    toggleLight(light, 'on');
+                } 
             }
 
         },
