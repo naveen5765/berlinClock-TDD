@@ -17,4 +17,15 @@ describe('Berlin Clock View', () => {
 
         expect(document.getElementById('digitalClock').innerHTML).eql('11:23:34');
     });
+
+    it('Should display an error message in case of an exception', () => {
+        const clockView = ClockView(document.body);
+        var div = document.createElement('div');
+        div.setAttribute('id', 'berlinClock');
+        document.body.appendChild(div);
+
+        clockView.setErrorMessage('Error Message');
+
+        expect(document.getElementById('berlinClock').innerHTML).eql('Error Message');
+    });
 });
