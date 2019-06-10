@@ -49,4 +49,8 @@ describe('Berlin Clock View', () => {
 
         expect(secondsLamp.classList.contains('off')).to.be.true;
     });
+    
+    it('Should display five hours row with 4 lamps', () => {
+        expect(document.querySelectorAll('#fiveHourRow .light').length).to.equal(4);
+    });
 });
