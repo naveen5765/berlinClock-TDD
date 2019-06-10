@@ -56,7 +56,7 @@ const ClockPresenter = (_view) => {
         if(isInValidTime(digitalTime))
             throw Constants.ERROR_MESSAGE;
 
-        const { hours, minutes, seconds } =  splitDigitalTime(digitalTime);
+        const [ hours, minutes, seconds ] =  splitDigitalTime(digitalTime);
 
         return secondsLamp(seconds) +
             fiveHoursRow(hours) +

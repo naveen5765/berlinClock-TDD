@@ -22,12 +22,7 @@ export const isMultipleOf3 = (number) => {
 };
 
 export const splitDigitalTime = (time) => {
-  let timeParts = time.split(":");
-  let hours = timeParts[0];
-  let minutes = timeParts[1];
-  let seconds = timeParts[2];
-
-  return {hours, minutes, seconds};
+  return time.split(":");
 };
 
 export const hasClass = (el, className) => {
