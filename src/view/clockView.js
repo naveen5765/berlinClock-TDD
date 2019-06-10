@@ -9,7 +9,12 @@ const ClockView = (container) => {
         setBerlinClockTime: (berlinClockTime) => {
             if(berlinClockTime[0] === Constants.LIGHT_YELLOW){
                 let light = document.querySelectorAll('#secondsLamp .light')[0];
+                removeClass(light, 'off');
                 addClass(light, 'on');
+            }else{
+                let light = document.querySelectorAll('#secondsLamp .light')[0];
+                removeClass(light, 'on');
+                addClass(light, 'off');
             }
         },
 
