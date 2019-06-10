@@ -32,39 +32,43 @@ describe('Berlin Clock View', () => {
         expect(document.getElementById('berlinClock').innerHTML).eql('Error Message');
     });
 
-    it('Should display seconds lamp', () => {
-        expect(document.getElementById('secondsLamp')).to.not.be.null;
-    });
-
-    it('Should turn on seconds lamp during even seconds', () => {
-        clockView.setBerlinClockTime('YOOOORRROYYRYYRYYROOYYOO');
-        let secondsLamp = document.querySelectorAll('#secondsLamp .light')[0];
-
-        expect(secondsLamp.classList.contains('on')).to.be.true;
-    });
-
-    it('Should turn off seconds lamp during odd seconds', () => {
-        clockView.setBerlinClockTime('OOOOORRROYYRYYRYYROOYYOO');
-        let secondsLamp = document.querySelectorAll('#secondsLamp .light')[0];
-
-        expect(secondsLamp.classList.contains('off')).to.be.true;
-    });
+    describe('Seconds Lamp', () => {
+        it('Should be displayed', () => {
+            expect(document.getElementById('secondsLamp')).to.not.be.null;
+        });
     
-    it('Should display five hours row with 4 lamps', () => {
-        expect(document.querySelectorAll('#fiveHourRow .light').length).to.equal(4);
+        it('Should turn on during even seconds', () => {
+            clockView.setBerlinClockTime('YOOOORRROYYRYYRYYROOYYOO');
+            let secondsLamp = document.querySelectorAll('#secondsLamp .light')[0];
+    
+            expect(secondsLamp.classList.contains('on')).to.be.true;
+        });
+    
+        it('Should turn off during odd seconds', () => {
+            clockView.setBerlinClockTime('OOOOORRROYYRYYRYYROOYYOO');
+            let secondsLamp = document.querySelectorAll('#secondsLamp .light')[0];
+    
+            expect(secondsLamp.classList.contains('off')).to.be.true;
+        });
     });
 
-    it('Should turn on five hours lamp if Berlin Clock color index is R', () => {
-        clockView.setBerlinClockTime('YRRRRRRROYYRYYRYYROOYYOO');
-        let secondsLamp = document.querySelectorAll('#fiveHourRow .light')[0];
-
-        expect(secondsLamp.classList.contains('on')).to.be.true;
-    });
-
-    it('Should turn off five hours lamp if Berlin Clock color index is O', () => {
-        clockView.setBerlinClockTime('YOOOORRROYYRYYRYYROOYYOO');
-        let secondsLamp = document.querySelectorAll('#fiveHourRow .light')[0];
-
-        expect(secondsLamp.classList.contains('off')).to.be.true;
+    describe('Five hours row', () => {
+        it('Should display 4 lamps', () => {
+            expect(document.querySelectorAll('#fiveHourRow .light').length).to.equal(4);
+        });
+    
+        it('Should turn on if Berlin Clock color index is R', () => {
+            clockView.setBerlinClockTime('YRRRRRRROYYRYYRYYROOYYOO');
+            let secondsLamp = document.querySelectorAll('#fiveHourRow .light')[0];
+    
+            expect(secondsLamp.classList.contains('on')).to.be.true;
+        });
+    
+        it('Should turn off if Berlin Clock color index is O', () => {
+            clockView.setBerlinClockTime('YOOOORRROYYRYYRYYROOYYOO');
+            let secondsLamp = document.querySelectorAll('#fiveHourRow .light')[0];
+    
+            expect(secondsLamp.classList.contains('off')).to.be.true;
+        });
     });
 });
