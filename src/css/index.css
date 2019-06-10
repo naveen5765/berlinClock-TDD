@@ -9,6 +9,12 @@ body {
   width: 100%;
 }
 
+body {
+  background-color: black;
+  display: table;
+  text-align: center;
+}
+
 #container {
   display: table-cell;
   vertical-align: middle;
