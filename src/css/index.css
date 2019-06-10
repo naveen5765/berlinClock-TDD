@@ -21,6 +21,13 @@ body {
   min-width: 500px;
 }
 
+#digitalClock {
+  color: white;
+  font-size: 60px;
+  letter-spacing: 7px;
+  font-family: fantasy;
+}
+
 #berlinClock {
   font-size: 0;
 }
